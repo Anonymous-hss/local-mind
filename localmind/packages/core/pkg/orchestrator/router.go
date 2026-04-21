@@ -3,7 +3,7 @@ package orchestrator
 import (
 	"fmt"
 
-	"github.com/localmind/core/internal/engine"
+	"github.com/localmind/core/pkg/engine"
 	"github.com/localmind/core/pkg/protocol"
 )
 

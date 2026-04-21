@@ -4,7 +4,7 @@ import (
 	"context"
 	"strings"
 
-	"github.com/localmind/core/internal/ast"
+	"github.com/localmind/core/pkg/ast"
 )
 
 // SmellConfig configures smell detection thresholds

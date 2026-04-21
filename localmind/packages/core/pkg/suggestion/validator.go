@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/localmind/core/internal/ast"
+	"github.com/localmind/core/pkg/ast"
 )
 
 // Validator validates suggestions before they can be applied

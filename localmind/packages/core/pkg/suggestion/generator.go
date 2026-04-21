@@ -7,7 +7,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/localmind/core/internal/ollama"
+	"github.com/localmind/core/pkg/ollama"
 )
 
 // Generator creates code suggestions using LLM

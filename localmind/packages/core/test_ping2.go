@@ -3,7 +3,7 @@ package main
 import (
     "context"
     "fmt"
-    "github.com/localmind/core/internal/ollama"
+    "github.com/localmind/core/pkg/ollama"
 )
 
 func main() {

@@ -7,7 +7,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/localmind/core/internal/ollama"
+	"github.com/localmind/core/pkg/ollama"
 	"github.com/localmind/core/pkg/protocol"
 )
 

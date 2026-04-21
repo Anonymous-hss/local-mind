@@ -14,7 +14,7 @@ import (
 	"os/signal"
 	"syscall"
 
-	"github.com/localmind/core/internal/orchestrator"
+	"github.com/localmind/core/pkg/orchestrator"
 )
 
 // Version is injected at build time by the release workflow:

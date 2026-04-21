@@ -10,7 +10,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/localmind/core/internal/orchestrator"
+	"github.com/localmind/core/pkg/orchestrator"
 	"github.com/localmind/core/pkg/protocol"
 )
 
