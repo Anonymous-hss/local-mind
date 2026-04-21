@@ -1,0 +1,205 @@
+﻿{
+  "timestamp": "2026-03-02T18:38:46.631Z",
+  "duration": "9542ms",
+  "summary": {
+    "total": 32,
+    "passed": 32,
+    "failed": 0,
+    "skipped": 0
+  },
+  "tests": [
+    {
+      "name": "Page loads without errors",
+      "passed": true,
+      "duration": "1022ms",
+      "error": null
+    },
+    {
+      "name": "Initial state is correct",
+      "passed": true,
+      "duration": "9ms",
+      "error": null
+    },
+    {
+      "name": "Status: online display",
+      "passed": true,
+      "duration": "117ms",
+      "error": null
+    },
+    {
+      "name": "Status: offline display",
+      "passed": true,
+      "duration": "112ms",
+      "error": null
+    },
+    {
+      "name": "Tab switching activates correct panels",
+      "passed": true,
+      "duration": "665ms",
+      "error": null
+    },
+    {
+      "name": "Tab switching triggers data fetch",
+      "passed": true,
+      "duration": "354ms",
+      "error": null
+    },
+    {
+      "name": "Command input sends message",
+      "passed": true,
+      "duration": "140ms",
+      "error": null
+    },
+    {
+      "name": "Empty command input rejected",
+      "passed": true,
+      "duration": "112ms",
+      "error": null
+    },
+    {
+      "name": "Approve button",
+      "passed": true,
+      "duration": "115ms",
+      "error": null
+    },
+    {
+      "name": "Reject button",
+      "passed": true,
+      "duration": "114ms",
+      "error": null
+    },
+    {
+      "name": "Abort button",
+      "passed": true,
+      "duration": "120ms",
+      "error": null
+    },
+    {
+      "name": "Plan rendering with all statuses",
+      "passed": true,
+      "duration": "125ms",
+      "error": null
+    },
+    {
+      "name": "Log rendering with all levels",
+      "passed": true,
+      "duration": "505ms",
+      "error": null
+    },
+    {
+      "name": "Log XSS prevention",
+      "passed": true,
+      "duration": "116ms",
+      "error": null
+    },
+    {
+      "name": "Stream chunk rendering",
+      "passed": true,
+      "duration": "356ms",
+      "error": null
+    },
+    {
+      "name": "History rendering with data",
+      "passed": true,
+      "duration": "221ms",
+      "error": null
+    },
+    {
+      "name": "History empty state",
+      "passed": true,
+      "duration": "123ms",
+      "error": null
+    },
+    {
+      "name": "Scores rendering with values",
+      "passed": true,
+      "duration": "225ms",
+      "error": null
+    },
+    {
+      "name": "Scores empty state",
+      "passed": true,
+      "duration": "106ms",
+      "error": null
+    },
+    {
+      "name": "Score class boundaries",
+      "passed": true,
+      "duration": "619ms",
+      "error": null
+    },
+    {
+      "name": "Strategies rendering",
+      "passed": true,
+      "duration": "222ms",
+      "error": null
+    },
+    {
+      "name": "Strategies empty state",
+      "passed": true,
+      "duration": "122ms",
+      "error": null
+    },
+    {
+      "name": "Lessons rendering with filters",
+      "passed": true,
+      "duration": "233ms",
+      "error": null
+    },
+    {
+      "name": "Lesson category filtering",
+      "passed": true,
+      "duration": "453ms",
+      "error": null
+    },
+    {
+      "name": "Lessons empty state",
+      "passed": true,
+      "duration": "121ms",
+      "error": null
+    },
+    {
+      "name": "Refresh buttons send messages",
+      "passed": true,
+      "duration": "222ms",
+      "error": null
+    },
+    {
+      "name": "Plan replacement",
+      "passed": true,
+      "duration": "352ms",
+      "error": null
+    },
+    {
+      "name": "Plan with special characters (XSS)",
+      "passed": true,
+      "duration": "113ms",
+      "error": null
+    },
+    {
+      "name": "Rapid-fire log rendering",
+      "passed": true,
+      "duration": "328ms",
+      "error": null
+    },
+    {
+      "name": "Duration formatting",
+      "passed": true,
+      "duration": "229ms",
+      "error": null
+    },
+    {
+      "name": "Score bar widths",
+      "passed": true,
+      "duration": "230ms",
+      "error": null
+    },
+    {
+      "name": "Full user workflow (E2E)",
+      "passed": true,
+      "duration": "1256ms",
+      "error": null
+    }
+  ]
+}
+

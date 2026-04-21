@@ -1,0 +1,34 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "npm",
+            "script": "compile",
+            "path": "packages/extension",
+            "group": "build",
+            "label": "npm: compile - packages/extension",
+            "detail": "tsc -p ./",
+            "presentation": {
+                "reveal": "silent"
+            },
+            "problemMatcher": [
+                "$tsc"
+            ]
+        },
+        {
+            "type": "npm",
+            "script": "watch",
+            "path": "packages/extension",
+            "group": "build",
+            "label": "npm: watch - packages/extension",
+            "detail": "tsc -watch -p ./",
+            "isBackground": true,
+            "presentation": {
+                "reveal": "never"
+            },
+            "problemMatcher": [
+                "$tsc-watch"
+            ]
+        }
+    ]
+}

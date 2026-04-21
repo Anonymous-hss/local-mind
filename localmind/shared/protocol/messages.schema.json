@@ -1,0 +1,373 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://localmind.dev/protocol/messages.schema.json",
+  "title": "LocalMind IPC Protocol",
+  "description": "Message schema for VS Code Extension ↔ Core Engine communication",
+  
+  "definitions": {
+    "MessageId": {
+      "type": "string",
+      "description": "Unique identifier for request/response correlation (UUID v4)"
+    },
+    
+    "Timestamp": {
+      "type": "integer",
+      "description": "Unix timestamp in milliseconds"
+    },
+    
+    "BaseMessage": {
+      "type": "object",
+      "properties": {
+        "id": { "$ref": "#/definitions/MessageId" },
+        "timestamp": { "$ref": "#/definitions/Timestamp" }
+      },
+      "required": ["id", "timestamp"]
+    },
+    
+    "RequestType": {
+      "type": "string",
+      "enum": ["handshake", "ping", "completion", "suggestion", "agent", "cancel"],
+      "description": "Type of request"
+    },
+    
+    "ResponseType": {
+      "type": "string",
+      "enum": ["handshake_ack", "pong", "result", "stream", "error", "cancelled"],
+      "description": "Type of response"
+    },
+    
+    "ErrorCode": {
+      "type": "string",
+      "enum": [
+        "INTERNAL_ERROR",
+        "TIMEOUT",
+        "CANCELLED",
+        "INVALID_REQUEST",
+        "MODEL_UNAVAILABLE",
+        "CONTEXT_TOO_LARGE",
+        "LATENCY_EXCEEDED"
+      ]
+    },
+    
+    "Request": {
+      "allOf": [
+        { "$ref": "#/definitions/BaseMessage" },
+        {
+          "type": "object",
+          "properties": {
+            "type": { "$ref": "#/definitions/RequestType" },
+            "payload": { "type": "object" }
+          },
+          "required": ["type"]
+        }
+      ]
+    },
+    
+    "HandshakeRequest": {
+      "allOf": [
+        { "$ref": "#/definitions/BaseMessage" },
+        {
+          "type": "object",
+          "properties": {
+            "type": { "const": "handshake" },
+            "payload": {
+              "type": "object",
+              "properties": {
+                "protocolVersion": {
+                  "type": "string",
+                  "description": "Protocol version (semver)"
+                },
+                "extensionVersion": {
+                  "type": "string",
+                  "description": "VS Code extension version"
+                }
+              },
+              "required": ["protocolVersion", "extensionVersion"]
+            }
+          }
+        }
+      ]
+    },
+    
+    "PingRequest": {
+      "allOf": [
+        { "$ref": "#/definitions/Request" },
+        {
+          "type": "object",
+          "properties": {
+            "type": { "const": "ping" }
+          }
+        }
+      ]
+    },
+    
+    "CompletionRequest": {
+      "allOf": [
+        { "$ref": "#/definitions/Request" },
+        {
+          "type": "object",
+          "properties": {
+            "type": { "const": "completion" },
+            "payload": {
+              "type": "object",
+              "properties": {
+                "prefix": {
+                  "type": "string",
+                  "description": "Code before cursor (max ~400 tokens)"
+                },
+                "suffix": {
+                  "type": "string",
+                  "description": "Code after cursor (optional, max ~100 tokens)"
+                },
+                "language": {
+                  "type": "string",
+                  "description": "Programming language ID"
+                },
+                "filePath": {
+                  "type": "string",
+                  "description": "Relative file path for context"
+                },
+                "maxTokens": {
+                  "type": "integer",
+                  "default": 50,
+                  "maximum": 100
+                }
+              },
+              "required": ["prefix", "language"]
+            }
+          }
+        }
+      ]
+    },
+    
+    "SuggestionRequest": {
+      "allOf": [
+        { "$ref": "#/definitions/Request" },
+        {
+          "type": "object",
+          "properties": {
+            "type": { "const": "suggestion" },
+            "payload": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "string",
+                  "description": "Selected code to improve"
+                },
+                "context": {
+                  "type": "string",
+                  "description": "Surrounding context"
+                },
+                "language": {
+                  "type": "string"
+                },
+                "suggestionType": {
+                  "type": "string",
+                  "enum": ["refactor", "optimize", "explain", "fix"]
+                }
+              },
+              "required": ["code", "language", "suggestionType"]
+            }
+          }
+        }
+      ]
+    },
+    
+    "AgentRequest": {
+      "allOf": [
+        { "$ref": "#/definitions/Request" },
+        {
+          "type": "object",
+          "properties": {
+            "type": { "const": "agent" },
+            "payload": {
+              "type": "object",
+              "properties": {
+                "task": {
+                  "type": "string",
+                  "description": "Natural language task description"
+                },
+                "files": {
+                  "type": "array",
+                  "items": { "type": "string" },
+                  "description": "Relevant file paths"
+                },
+                "workspaceRoot": {
+                  "type": "string",
+                  "description": "Workspace root path"
+                }
+              },
+              "required": ["task", "workspaceRoot"]
+            }
+          }
+        }
+      ]
+    },
+    
+    "CancelRequest": {
+      "allOf": [
+        { "$ref": "#/definitions/Request" },
+        {
+          "type": "object",
+          "properties": {
+            "type": { "const": "cancel" },
+            "payload": {
+              "type": "object",
+              "properties": {
+                "requestId": {
+                  "$ref": "#/definitions/MessageId",
+                  "description": "ID of request to cancel"
+                }
+              },
+              "required": ["requestId"]
+            }
+          }
+        }
+      ]
+    },
+    
+    "Response": {
+      "allOf": [
+        { "$ref": "#/definitions/BaseMessage" },
+        {
+          "type": "object",
+          "properties": {
+            "type": { "$ref": "#/definitions/ResponseType" },
+            "requestId": {
+              "$ref": "#/definitions/MessageId",
+              "description": "ID of the original request"
+            }
+          },
+          "required": ["type", "requestId"]
+        }
+      ]
+    },
+    
+    "HandshakeAckResponse": {
+      "allOf": [
+        { "$ref": "#/definitions/BaseMessage" },
+        {
+          "type": "object",
+          "properties": {
+            "type": { "const": "handshake_ack" },
+            "requestId": { "$ref": "#/definitions/MessageId" },
+            "payload": {
+              "type": "object",
+              "properties": {
+                "protocolVersion": {
+                  "type": "string",
+                  "description": "Core engine protocol version"
+                },
+                "coreVersion": {
+                  "type": "string",
+                  "description": "Core engine version"
+                },
+                "compatible": {
+                  "type": "boolean",
+                  "description": "Whether extension and core are compatible"
+                }
+              },
+              "required": ["protocolVersion", "coreVersion", "compatible"]
+            }
+          }
+        }
+      ]
+    },
+    
+    "PongResponse": {
+      "allOf": [
+        { "$ref": "#/definitions/Response" },
+        {
+          "type": "object",
+          "properties": {
+            "type": { "const": "pong" },
+            "payload": {
+              "type": "object",
+              "properties": {
+                "version": { "type": "string" },
+                "ollamaStatus": {
+                  "type": "string",
+                  "enum": ["connected", "disconnected", "unknown"]
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    
+    "ResultResponse": {
+      "allOf": [
+        { "$ref": "#/definitions/Response" },
+        {
+          "type": "object",
+          "properties": {
+            "type": { "const": "result" },
+            "payload": {
+              "type": "object",
+              "properties": {
+                "content": { "type": "string" },
+                "latencyMs": { "type": "integer" },
+                "model": { "type": "string" }
+              },
+              "required": ["content", "latencyMs"]
+            }
+          }
+        }
+      ]
+    },
+    
+    "StreamResponse": {
+      "allOf": [
+        { "$ref": "#/definitions/Response" },
+        {
+          "type": "object",
+          "properties": {
+            "type": { "const": "stream" },
+            "payload": {
+              "type": "object",
+              "properties": {
+                "chunk": { "type": "string" },
+                "done": { "type": "boolean", "default": false }
+              },
+              "required": ["chunk", "done"]
+            }
+          }
+        }
+      ]
+    },
+    
+    "ErrorResponse": {
+      "allOf": [
+        { "$ref": "#/definitions/Response" },
+        {
+          "type": "object",
+          "properties": {
+            "type": { "const": "error" },
+            "payload": {
+              "type": "object",
+              "properties": {
+                "code": { "$ref": "#/definitions/ErrorCode" },
+                "message": { "type": "string" },
+                "details": { "type": "object" }
+              },
+              "required": ["code", "message"]
+            }
+          }
+        }
+      ]
+    },
+    
+    "CancelledResponse": {
+      "allOf": [
+        { "$ref": "#/definitions/Response" },
+        {
+          "type": "object",
+          "properties": {
+            "type": { "const": "cancelled" }
+          }
+        }
+      ]
+    }
+  }
+}

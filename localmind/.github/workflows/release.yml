@@ -1,0 +1,109 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'  # Triggered by tags like v0.1.0
+
+permissions:
+  contents: write
+
+jobs:
+  build-core:
+    name: Build Core (${{ matrix.os }})
+    strategy:
+      matrix:
+        include:
+          - os: ubuntu-latest
+            goos: linux
+            goarch: amd64
+            asset_name: localmind-core-linux-amd64
+          - os: macos-latest
+            goos: darwin
+            goarch: amd64
+            asset_name: localmind-core-darwin-amd64
+          - os: macos-latest
+            goos: darwin
+            goarch: arm64
+            asset_name: localmind-core-darwin-arm64
+          - os: windows-latest
+            goos: windows
+            goarch: amd64
+            asset_name: localmind-core-windows-amd64.exe
+
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.21'
+          cache-dependency-path: packages/core/go.sum
+
+      - name: Build core binary
+        working-directory: ./packages/core
+        env:
+          GOOS: ${{ matrix.goos }}
+          GOARCH: ${{ matrix.goarch }}
+          CGO_ENABLED: 0
+        run: |
+          go build -ldflags="-s -w -X main.Version=${{ github.ref_name }}" -o ${{ matrix.asset_name }} ./cmd/localmind
+
+      - name: Upload binary artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.asset_name }}
+          path: packages/core/${{ matrix.asset_name }}
+          retention-days: 1
+
+  create-release:
+    name: Create GitHub Release
+    needs: build-core
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download all binary artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: ./binaries
+          merge-multiple: true
+
+      - name: List downloaded artifacts (debug)
+        run: ls -la ./binaries
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install extension dependencies
+        working-directory: ./packages/extension
+        run: npm ci
+
+      - name: Package extension
+        working-directory: ./packages/extension
+        run: npx vsce package --no-dependencies -o localmind-${{ github.ref_name }}.vsix
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          name: LocalMind ${{ github.ref_name }}
+          draft: false
+          prerelease: ${{ contains(github.ref_name, '-') }}
+          body: |
+            ## LocalMind ${{ github.ref_name }}
+
+            ### Installation
+            1. Install the `.vsix` file in VS Code: **Extensions** → **⋯** → **Install from VSIX**
+            2. Ensure [Ollama](https://ollama.ai) is running
+            3. The core engine binary will be downloaded automatically on first launch
+
+            ### What's Changed
+            See [CHANGELOG.md](https://github.com/localmind/localmind/blob/main/CHANGELOG.md)
+          files: |
+            packages/extension/localmind-${{ github.ref_name }}.vsix
+            binaries/*

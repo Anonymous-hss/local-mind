@@ -1,0 +1,18 @@
+{
+    "task": "Add error handling to the greet function",
+    "workspaceRoot": "/test/project",
+    "files": [
+        "main.go"
+    ],
+    "expectedSteps": [
+        {
+            "type": "analyze",
+            "description": "Analyze greet function for error patterns"
+        },
+        {
+            "type": "edit",
+            "file": "main.go",
+            "description": "Add error return type and validation"
+        }
+    ]
+}

@@ -1,0 +1,163 @@
+{
+  "name": "localmind",
+  "displayName": "LocalMind",
+  "description": "A Local-First, High-Performance Coding Agent powered by Ollama",
+  "version": "0.1.0",
+  "publisher": "localmind",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/localmind/localmind.git"
+  },
+  "bugs": {
+    "url": "https://github.com/localmind/localmind/issues"
+  },
+  "homepage": "https://github.com/localmind/localmind#readme",
+  "icon": "images/icon.png",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Machine Learning",
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "localmind.ping",
+        "title": "LocalMind: Ping Core Engine"
+      },
+      {
+        "command": "localmind.showStatus",
+        "title": "LocalMind: Show Status"
+      },
+      {
+        "command": "localmind.restart",
+        "title": "LocalMind: Restart Core Engine"
+      },
+      {
+        "command": "localmind.showLogs",
+        "title": "LocalMind: Show Logs"
+      },
+      {
+        "command": "localmind.toggleCompletions",
+        "title": "LocalMind: Toggle Completions"
+      },
+      {
+        "command": "localmind.agentPlanTask",
+        "title": "LocalMind: Plan Agent Task"
+      },
+      {
+        "command": "localmind.agentExecuteTask",
+        "title": "LocalMind: Execute Agent Task"
+      },
+      {
+        "command": "localmind.agentRollback",
+        "title": "LocalMind: Rollback Agent Changes"
+      },
+      {
+        "command": "localmind.agentStatus",
+        "title": "LocalMind: Show Agent Task Status"
+      },
+      {
+        "command": "localmind.openDashboard",
+        "title": "LocalMind: Open Repo Memory Dashboard",
+        "category": "LocalMind"
+      }
+    ],
+    "configuration": {
+      "title": "LocalMind",
+      "properties": {
+        "localmind.corePath": {
+          "type": "string",
+          "default": "",
+          "description": "Path to LocalMind core engine binary"
+        },
+        "localmind.ollamaUrl": {
+          "type": "string",
+          "default": "http://localhost:11434",
+          "description": "Ollama server URL"
+        },
+        "localmind.debug": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable debug logging"
+        },
+        "localmind.model": {
+          "type": "string",
+          "default": "llama3",
+          "description": "Ollama model to use for completions and agent tasks",
+          "enum": [
+            "llama3",
+            "codellama",
+            "mistral",
+            "deepseek-coder",
+            "starcoder2",
+            "phi3"
+          ],
+          "enumDescriptions": [
+            "Meta Llama 3 — General purpose, 8B params",
+            "Code Llama — Code-optimized, 7B params",
+            "Mistral — Fast and capable, 7B params",
+            "DeepSeek Coder — Code generation specialist",
+            "StarCoder2 — Open-source code model",
+            "Phi-3 — Microsoft small language model"
+          ]
+        },
+        "localmind.contextBudget": {
+          "type": "number",
+          "default": 12000,
+          "minimum": 4000,
+          "maximum": 32000,
+          "description": "Maximum characters for context budget (higher = more context, slower)"
+        },
+        "localmind.maxSteps": {
+          "type": "number",
+          "default": 20,
+          "minimum": 1,
+          "maximum": 50,
+          "description": "Maximum number of steps the agent can plan per task"
+        }
+      }
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "localmind-activity-bar",
+          "title": "LocalMind",
+          "icon": "$(hubot)"
+        }
+      ]
+    },
+    "views": {
+      "localmind-activity-bar": [
+        {
+          "id": "localmind.agentView",
+          "type": "webview",
+          "name": "Operator Dashboard"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js",
+    "package": "vsce package --no-dependencies"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@types/vscode": "^1.85.0",
+    "@typescript-eslint/eslint-plugin": "^6.13.0",
+    "@typescript-eslint/parser": "^6.13.0",
+    "eslint": "^8.54.0",
+    "typescript": "^5.3.0"
+  }
+}

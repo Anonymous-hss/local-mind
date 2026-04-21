@@ -1,0 +1,51 @@
+name: Build Extension
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Setup Go
+      uses: actions/setup-go@v4
+      with:
+        go-version: '1.21'
+        cache-dependency-path: packages/core/go.sum
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+        cache: 'npm'
+        cache-dependency-path: packages/extension/package-lock.json
+
+    - name: Build Core (Go)
+      working-directory: ./packages/core
+      run: go build -v ./...
+
+    - name: Test Core (Go)
+      working-directory: ./packages/core
+      run: go test -v ./...
+
+    - name: Install Extension Dependencies
+      working-directory: ./packages/extension
+      run: npm ci
+
+    - name: Compile Extension
+      working-directory: ./packages/extension
+      run: npm run compile
+
+    - name: Package Extension
+      if: runner.os == 'Linux'
+      working-directory: ./packages/extension
+      run: npx vsce package --no-dependencies

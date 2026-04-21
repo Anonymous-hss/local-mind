@@ -1,0 +1,8 @@
+src/
+node_modules/
+.vscode-test/
+.gitignore
+tsconfig.json
+.eslintrc.json
+vsc-extension-quickstart.md
+images/banner.png

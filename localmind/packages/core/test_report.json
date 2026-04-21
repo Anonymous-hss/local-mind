@@ -1,0 +1,1258 @@
+﻿{
+  "timestamp": "2026-03-03T00:08:00+05:30",
+  "duration": "7.106s",
+  "summary": {
+    "total": 190,
+    "passed": 189,
+    "failed": 1,
+    "skipped": 0
+  },
+  "packages": [
+    {
+      "name": "github.com/localmind/core/internal/agent",
+      "passed": true,
+      "duration": "2.01s",
+      "elapsed_seconds": 2.008,
+      "tests": [
+        {
+          "name": "TestAllocateOverBudget",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestAllocateTruncationAtLineBoundary",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestAllocateUnderBudget",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestAllocateWithEmpty",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestAnalyzeError_MissingDep",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestAnalyzeError_Syntax",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestAnalyzeError_TestFailure",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestAnalyzeError_WithMockLLM",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestBuildChangeContext",
+          "passed": true,
+          "duration": "240ms",
+          "elapsed_seconds": 0.24
+        },
+        {
+          "name": "TestBuildCursorContext",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestBuildPromptSections",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestCircularImports",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestDeduplication",
+          "passed": true,
+          "duration": "10ms",
+          "elapsed_seconds": 0.01
+        },
+        {
+          "name": "TestDefaultBudget",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestEvaluate_WeightedOverall",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestExecutor_AnalyzeStep",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestExecutor_ApproveStep",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestExecutor_BlocksDangerousCommands",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestExecutor_CreateAndDeleteFile",
+          "passed": true,
+          "duration": "10ms",
+          "elapsed_seconds": 0.01
+        },
+        {
+          "name": "TestExecutor_RejectStep",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestExtractScopeFileNotFound",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestExtractScopeGoFunction",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestExtractScopeGoMethod",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestExtractScopeJSFunction",
+          "passed": true,
+          "duration": "10ms",
+          "elapsed_seconds": 0.01
+        },
+        {
+          "name": "TestExtractScopeOutOfBounds",
+          "passed": true,
+          "duration": "10ms",
+          "elapsed_seconds": 0.01
+        },
+        {
+          "name": "TestExtractScopePythonDef",
+          "passed": true,
+          "duration": "10ms",
+          "elapsed_seconds": 0.01
+        },
+        {
+          "name": "TestGenerateFixSteps_Syntax",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestGenerateFixSteps_TestFailure",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestGetChangedFiles",
+          "passed": true,
+          "duration": "240ms",
+          "elapsed_seconds": 0.24
+        },
+        {
+          "name": "TestGetDiff",
+          "passed": true,
+          "duration": "200ms",
+          "elapsed_seconds": 0.2
+        },
+        {
+          "name": "TestGetDiffFull",
+          "passed": true,
+          "duration": "180ms",
+          "elapsed_seconds": 0.18
+        },
+        {
+          "name": "TestGetModelBudgetKnown",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestGetModelBudgetUnknown",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestGetModelBudgetUserOverride",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestGetRecentCommits",
+          "passed": true,
+          "duration": "280ms",
+          "elapsed_seconds": 0.28
+        },
+        {
+          "name": "TestGetStagedDiff",
+          "passed": true,
+          "duration": "220ms",
+          "elapsed_seconds": 0.22
+        },
+        {
+          "name": "TestIsGitRepo",
+          "passed": true,
+          "duration": "180ms",
+          "elapsed_seconds": 0.18
+        },
+        {
+          "name": "TestNestedScopes",
+          "passed": true,
+          "duration": "10ms",
+          "elapsed_seconds": 0.01
+        },
+        {
+          "name": "TestNewTask",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestNoGitRepo",
+          "passed": true,
+          "duration": "70ms",
+          "elapsed_seconds": 0.07
+        },
+        {
+          "name": "TestParseReview_HighScore",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestParseReview_LowScore",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestPlanner_AnalyzeRisks",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestPlanner_ParseSteps",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestQueueConcurrency",
+          "passed": true,
+          "duration": "40ms",
+          "elapsed_seconds": 0.04
+        },
+        {
+          "name": "TestQueueContextCancellation",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestQueuePendingCount",
+          "passed": true,
+          "duration": "70ms",
+          "elapsed_seconds": 0.07
+        },
+        {
+          "name": "TestQueueSerialExecution",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestResolveImportsGo",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestResolveImportsPython",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestResolveImportsTS",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestReviewAndRevise_ApprovedFirstRound",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestReview_MockLLM",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestRollbackManager_CreateCheckpoint",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestRollbackManager_Rollback",
+          "passed": true,
+          "duration": "10ms",
+          "elapsed_seconds": 0.01
+        },
+        {
+          "name": "TestSafeModeBlocked",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestSafeModeDisabledSkipsWarn",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestSafeModeSafe",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestSafeModeWarn",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestSanitizeSecrets",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestSanitizeStripAnsi",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestSanitizeTruncation",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestScoreCompleteness_AllDone",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestScoreCompleteness_Partial",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestScoreEfficiency_FixSteps",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestScoreEfficiency_Perfect",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestScoreEfficiency_SomeRetries",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestScoreQuality_MockLLM",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestTask_ActionLogIsComplete",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestTask_AddStep",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestTask_LogAction",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestTask_Summary",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestValidateCode_Balanced",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestValidateCode_UnbalancedBraces",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        }
+      ]
+    },
+    {
+      "name": "github.com/localmind/core/internal/ast",
+      "passed": true,
+      "duration": "1.08s",
+      "elapsed_seconds": 1.082,
+      "tests": [
+        {
+          "name": "TestBoundaryDetector_DetectFramework",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestBoundaryDetector_DetectLayer",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestGraphBuilder_AddFile",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestGraphBuilder_CycleDetection",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestGraphBuilder_ResolveImports",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestGraphBuilder_TopologicalSort",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        }
+      ]
+    },
+    {
+      "name": "github.com/localmind/core/internal/ctxbuilder",
+      "passed": true,
+      "duration": "2.83s",
+      "elapsed_seconds": 2.831,
+      "tests": [
+        {
+          "name": "TestAllocateOverBudget",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestAllocateTruncationAtLineBoundary",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestAllocateUnderBudget",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestAllocateWithEmpty",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestBuildChangeContext",
+          "passed": true,
+          "duration": "230ms",
+          "elapsed_seconds": 0.23
+        },
+        {
+          "name": "TestBuildCursorContext",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestBuildPromptSections",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestCircularImports",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestDeduplication",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestDefaultBudget",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestExtractScopeFileNotFound",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestExtractScopeGoFunction",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestExtractScopeGoMethod",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestExtractScopeJSFunction",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestExtractScopeOutOfBounds",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestExtractScopePythonDef",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestGetChangedFiles",
+          "passed": true,
+          "duration": "230ms",
+          "elapsed_seconds": 0.23
+        },
+        {
+          "name": "TestGetDiff",
+          "passed": true,
+          "duration": "190ms",
+          "elapsed_seconds": 0.19
+        },
+        {
+          "name": "TestGetDiffFull",
+          "passed": true,
+          "duration": "190ms",
+          "elapsed_seconds": 0.19
+        },
+        {
+          "name": "TestGetRecentCommits",
+          "passed": true,
+          "duration": "360ms",
+          "elapsed_seconds": 0.36
+        },
+        {
+          "name": "TestGetStagedDiff",
+          "passed": true,
+          "duration": "280ms",
+          "elapsed_seconds": 0.28
+        },
+        {
+          "name": "TestIsGitRepo",
+          "passed": true,
+          "duration": "180ms",
+          "elapsed_seconds": 0.18
+        },
+        {
+          "name": "TestNestedScopes",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestNoGitRepo",
+          "passed": true,
+          "duration": "70ms",
+          "elapsed_seconds": 0.07
+        },
+        {
+          "name": "TestResolveImportsGo",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestResolveImportsPython",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestResolveImportsTS",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        }
+      ]
+    },
+    {
+      "name": "github.com/localmind/core/internal/engine",
+      "passed": true,
+      "duration": "340ms",
+      "elapsed_seconds": 0.34,
+      "tests": [
+        {
+          "name": "TestCompletionCache_Clear",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestCompletionCache_LRU",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestCompletionCache_Language",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestCompletionCache_Miss",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestCompletionCache_SetGet",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestCompletionCache_TTL",
+          "passed": true,
+          "duration": "100ms",
+          "elapsed_seconds": 0.1
+        },
+        {
+          "name": "TestCompletionEngine_BuildPrompt",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestCompletionEngine_CleanCompletion",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestCompletionEngine_ExtractContext",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestCompletionLatencyBudget",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestGoldenCompletions",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestGoldenDeterminism",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestMemoryBudget",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestSuggestionEngine_Execute",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestSuggestionLatencyBudget",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        }
+      ]
+    },
+    {
+      "name": "github.com/localmind/core/internal/ipc",
+      "passed": true,
+      "duration": "1.13s",
+      "elapsed_seconds": 1.129,
+      "tests": [
+        {
+          "name": "TestReader_ContextCancellation",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestReader_Read",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestReader_ReadMultiple",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestWriter_ConcurrentWrites",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestWriter_Write",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestWriter_WriteError",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        }
+      ]
+    },
+    {
+      "name": "github.com/localmind/core/internal/memory",
+      "passed": true,
+      "duration": "1.14s",
+      "elapsed_seconds": 1.139,
+      "tests": [
+        {
+          "name": "TestInferrer_InferTechStack",
+          "passed": true,
+          "duration": "10ms",
+          "elapsed_seconds": 0.01
+        },
+        {
+          "name": "TestLoader_MergeWithOverrides",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestLoader_UserOverrides",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestMemoryEntry_Confidence",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestNewRepoMemory",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestRepoMemory_JSON",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        }
+      ]
+    },
+    {
+      "name": "github.com/localmind/core/internal/multifile",
+      "passed": true,
+      "duration": "1.03s",
+      "elapsed_seconds": 1.033,
+      "tests": [
+        {
+          "name": "TestAnalyzeDependencyGraph",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestDetectLanguage",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestExtractGoExports",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestExtractGoImports",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestExtractTSExports",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestPlanAtomicChangesConnectedFiles",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestPlanAtomicChangesSingleFile",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestTopologicalSort",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestValidateConsistencyNoIssues",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestValidateConsistencyWarning",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        }
+      ]
+    },
+    {
+      "name": "github.com/localmind/core/internal/ollama",
+      "passed": true,
+      "duration": "2.20s",
+      "elapsed_seconds": 2.198,
+      "tests": [
+        {
+          "name": "TestClient_GenerateCancellation",
+          "passed": true,
+          "duration": "500ms",
+          "elapsed_seconds": 0.5
+        },
+        {
+          "name": "TestClient_GenerateStreaming",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestClient_HasModel",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestClient_ListModels",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestClient_Ping",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestClient_PingFailed",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        }
+      ]
+    },
+    {
+      "name": "github.com/localmind/core/internal/orchestrator",
+      "passed": true,
+      "duration": "3.18s",
+      "elapsed_seconds": 3.18,
+      "tests": [
+        {
+          "name": "TestCancellationManager_AgentNoDebounce",
+          "passed": true,
+          "duration": "50ms",
+          "elapsed_seconds": 0.05
+        },
+        {
+          "name": "TestCancellationManager_Cancel",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestCancellationManager_CancelAll",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestCancellationManager_Debounce",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestCancellationManager_Register",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestGracefulShutdown",
+          "passed": true,
+          "duration": "150ms",
+          "elapsed_seconds": 0.15
+        },
+        {
+          "name": "TestIsCancelled",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestIsTimeout",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestMustNotPanic",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestOrchestrator_ConcurrentRequests",
+          "passed": true,
+          "duration": "2.00s",
+          "elapsed_seconds": 2
+        },
+        {
+          "name": "TestOrchestrator_InvalidRequestType",
+          "passed": true,
+          "duration": "100ms",
+          "elapsed_seconds": 0.1
+        },
+        {
+          "name": "TestOrchestrator_Ping",
+          "passed": true,
+          "duration": "100ms",
+          "elapsed_seconds": 0.1
+        },
+        {
+          "name": "TestOrchestrator_RapidRequestsDebounce",
+          "passed": true,
+          "duration": "500ms",
+          "elapsed_seconds": 0.5
+        },
+        {
+          "name": "TestPanicRecovery",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestTimeoutManager_DefaultTimeout",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestTimeoutManager_TimeoutEnforcement",
+          "passed": true,
+          "duration": "50ms",
+          "elapsed_seconds": 0.05
+        },
+        {
+          "name": "TestTimeoutManager_WrapContext",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        }
+      ]
+    },
+    {
+      "name": "github.com/localmind/core/internal/rag",
+      "passed": true,
+      "duration": "1.15s",
+      "elapsed_seconds": 1.147,
+      "tests": [
+        {
+          "name": "TestBuildRAGContext",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestBuildRAGContextEmpty",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestChunkText",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestChunkTextEmpty",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestChunkTextSingleChunk",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestCosineSimilarityIdentical",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestCosineSimilarityOpposite",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestCosineSimilarityOrthogonal",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestIsSourceFile",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestRetrieverIndexSmallWorkspace",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestVectorStoreAddAndSearch",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestVectorStoreClear",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestVectorStorePersistence",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestVectorStoreRemoveByFile",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        }
+      ]
+    },
+    {
+      "name": "github.com/localmind/core/internal/suggestion",
+      "passed": true,
+      "duration": "1.10s",
+      "elapsed_seconds": 1.102,
+      "tests": [
+        {
+          "name": "TestAnalyzer_DetectDeepNesting",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestAnalyzer_DetectLongFunction",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestApplyDiff",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestDiff_GetStats",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestDiff_ToUnifiedDiff",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestValidator_RequiresDiff",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        },
+        {
+          "name": "TestValidator_RequiresExplanation",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        }
+      ]
+    },
+    {
+      "name": "github.com/localmind/core/test/e2e",
+      "passed": false,
+      "duration": "1.09s",
+      "elapsed_seconds": 1.091,
+      "tests": [
+        {
+          "name": "TestE2E_Binary",
+          "passed": false,
+          "duration": "690ms",
+          "output": "=== RUN   TestE2E_Binary\n    e2e_test.go:99: Testing Handshake...\n2026/03/03 00:08:07 LocalMind core starting (version=dev)\n[LocalMind] 2026/03/03 00:08:07 Starting LocalMind Core Engine v0.0.1\n[LocalMind] 2026/03/03 00:08:07 Received request: type=handshake id=e2e-handshake\n[LocalMind] 2026/03/03 00:08:07 Handshake complete: compatible=true\n    e2e_test.go:121: Testing Ping...\n[LocalMind] 2026/03/03 00:08:07 Received request: type=ping id=e2e-ping\n    e2e_test.go:136: Ollama Status: disconnected\n    e2e_test.go:139: Testing Completion...\n[LocalMind] 2026/03/03 00:08:07 Received request: type=completion id=e2e-comp\n[LocalMind] 2026/03/03 00:08:07 Request complete: id=e2e-comp latency=0ms\n    e2e_test.go:169: Completion: \"\"\n    e2e_test.go:171: Completion returned empty content\n--- FAIL: TestE2E_Binary (0.69s)\n",
+          "elapsed_seconds": 0.69
+        }
+      ]
+    },
+    {
+      "name": "github.com/localmind/core/test/integration",
+      "passed": true,
+      "duration": "104ms",
+      "elapsed_seconds": 0.104,
+      "tests": [
+        {
+          "name": "TestCoreIntegration_FullRoundTrip",
+          "passed": true,
+          "duration": "\u003c1ms",
+          "elapsed_seconds": 0
+        }
+      ]
+    }
+  ]
+}
+

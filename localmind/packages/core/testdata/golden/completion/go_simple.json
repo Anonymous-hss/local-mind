@@ -1,0 +1,6 @@
+{
+    "prefix": "package main\n\nfunc greet(name string) string {\n\treturn \"Hello, \" + name\n}\n\nfunc main() {\n\tgreet(\"world\")",
+    "language": "go",
+    "filePath": "test.go",
+    "expectedCompletion": ")\n}"
+}

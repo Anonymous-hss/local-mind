@@ -1,0 +1,56 @@
+# Binaries
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Go
+/packages/core/bin/
+/packages/core/vendor/
+
+# Node
+node_modules/
+*.log
+npm-debug.log*
+
+# VS Code Extension
+/packages/extension/out/
+/packages/extension/*.vsix
+.vscode-test/
+
+# IDE
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Build artifacts
+dist/
+build/
+*.o
+*.a
+
+# Test coverage
+coverage/
+*.lcov
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# OS files
+Thumbs.db
+Desktop.ini
+
+# SQLite databases (local development)
+*.db
+*.sqlite
+*.sqlite3
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+./Docs

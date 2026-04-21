@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<!--
+  GUI Test Harness for LocalMind Dashboard
+  
+  This page replicates the exact DOM structure from DashboardProvider._getHtmlForWebview()
+  and loads the real dashboard.css + dashboard.js from media/.
+  
+  The acquireVsCodeApi() function is mocked so gui_test.js can assert on postMessage calls
+  and inject incoming messages to test all rendering paths.
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../media/dashboard.css" rel="stylesheet">
+    <title>LocalMind Dashboard — Test Harness</title>
+    <style>
+        /* Provide VS Code CSS variables that the dashboard.css expects */
+        :root {
+            --vscode-editor-background: #1e1e1e;
+            --vscode-editor-foreground: #cccccc;
+            --vscode-sideBar-background: #252526;
+            --vscode-sideBarTitle-foreground: #bbbbbb;
+            --vscode-input-background: #3c3c3c;
+            --vscode-input-foreground: #cccccc;
+            --vscode-input-border: #555555;
+            --vscode-button-background: #0e639c;
+            --vscode-button-foreground: #ffffff;
+            --vscode-button-hoverBackground: #1177bb;
+            --vscode-focusBorder: #007fd4;
+            --vscode-textLink-foreground: #3794ff;
+            --vscode-errorForeground: #f48771;
+            --vscode-list-hoverBackground: #2a2d2e;
+            --vscode-badge-background: #4d4d4d;
+            --vscode-badge-foreground: #cccccc;
+            --vscode-scrollbarSlider-background: rgba(121, 121, 121, 0.4);
+            --vscode-scrollbarSlider-hoverBackground: rgba(100, 100, 100, 0.7);
+            --vscode-scrollbarSlider-activeBackground: rgba(191, 191, 191, 0.4);
+            --vscode-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --vscode-font-size: 13px;
+        }
+        body {
+            background: var(--vscode-editor-background);
+            color: var(--vscode-editor-foreground);
+            font-family: var(--vscode-font-family);
+            font-size: var(--vscode-font-size);
+        }
+    </style>
+    <script>
+        // ============================================================
+        // Mock acquireVsCodeApi — MUST be defined before dashboard.js
+        // ============================================================
+        window.__testMessages = []; // Captures postMessage calls from dashboard.js
+
+        function acquireVsCodeApi() {
+            return {
+                postMessage(msg) {
+                    window.__testMessages.push(msg);
+                },
+                getState() { return null; },
+                setState(s) { return s; }
+            };
+        }
+
+        // Helper: inject a message as if VS Code sent it to the webview
+        window.__injectMessage = function(data) {
+            window.dispatchEvent(new MessageEvent('message', { data }));
+        };
+
+        // Helper: clear captured messages
+        window.__clearMessages = function() {
+            window.__testMessages = [];
+        };
+    </script>
+</head>
+<body>
+    <!-- 
+      ════════════════════════════════════════════════════════════════
+      Exact copy of the HTML from DashboardProvider._getHtmlForWebview()
+      ════════════════════════════════════════════════════════════════
+    -->
+
+    <!-- Header -->
+    <div class="header">
+        <div class="header-top">
+            <span class="brand">
+                <span class="brand-icon">⚡</span>
+                LocalMind
+            </span>
+            <div class="status-badge">
+                <div class="status-dot" id="statusDot"></div>
+                <span id="statusText">CONNECTING</span>
+            </div>
+        </div>
+        <div class="model-info">Ollama • Local-First Agent</div>
+    </div>
+
+    <!-- Tab Bar -->
+    <div class="tab-bar">
+        <button class="tab-btn active" data-tab="agent">Agent</button>
+        <button class="tab-btn" data-tab="history">History</button>
+        <button class="tab-btn" data-tab="scores">Scores</button>
+        <button class="tab-btn" data-tab="strategies">Strategy</button>
+        <button class="tab-btn" data-tab="lessons">Lessons</button>
+    </div>
+
+    <!-- ===== AGENT TAB ===== -->
+    <div class="tab-panel active" id="panel-agent">
+        <div class="card">
+            <div class="card-header">
+                <span class="card-title">Execution Plan</span>
+            </div>
+            <ul class="plan-list" id="planList">
+                <li class="plan-item">
+                    <span class="checkbox">[ ]</span>
+                    <span>Awaiting command...</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="risk-alert" style="display: none;" id="riskAlert">
+            <div class="risk-content">
+                <strong>⚠ Risk Detected</strong>
+                <p id="riskText">—</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <span class="card-title">System Log</span>
+            </div>
+            <div class="log-container" id="logContainer">
+                <div class="log-entry">
+                    <span class="log-time">sys</span>
+                    <span class="log-msg info">Ready.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== HISTORY TAB ===== -->
+    <div class="tab-panel" id="panel-history">
+        <div class="timeline" id="historyList">
+            <div class="empty-state">
+                <div class="empty-icon">📋</div>
+                Loading task history...
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== SCORES TAB ===== -->
+    <div class="tab-panel" id="panel-scores">
+        <div class="score-grid" id="scoresGrid">
+            <div class="empty-state" style="grid-column: 1 / -1">
+                <div class="empty-icon">📊</div>
+                Loading scores...
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== STRATEGIES TAB ===== -->
+    <div class="tab-panel" id="panel-strategies">
+        <div class="strategy-list" id="strategyList">
+            <div class="empty-state">
+                <div class="empty-icon">🎯</div>
+                Loading strategies...
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== LESSONS TAB ===== -->
+    <div class="tab-panel" id="panel-lessons">
+        <div class="lesson-filters" id="lessonFilters"></div>
+        <div class="lesson-list" id="lessonList">
+            <div class="empty-state">
+                <div class="empty-icon">📚</div>
+                Loading lessons...
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer — Command Input + Actions -->
+    <div class="footer">
+        <div class="action-bar">
+            <button class="btn-action btn-approve" id="btnApprove">
+                <span>[y]</span> APPROVE
+            </button>
+            <button class="btn-action btn-reject" id="btnReject">
+                <span>[n]</span> REJECT
+            </button>
+            <button class="btn-action btn-abort" id="btnAbort">
+                ABORT
+            </button>
+        </div>
+
+        <div class="input-container">
+            <span class="prompt-symbol">&gt;</span>
+            <input type="text"
+                   class="command-input"
+                   id="commandInput"
+                   placeholder="Refactor auth loop @login.go"
+                   autocomplete="off">
+            <div class="input-line"></div>
+        </div>
+    </div>
+
+    <!-- Load the REAL dashboard.js -->
+    <script src="../media/dashboard.js"></script>
+</body>
+</html>

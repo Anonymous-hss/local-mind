@@ -1,0 +1,6 @@
+{
+    "prefix": "import express from 'express';\n\nconst app = express();\n\napp.get('/api/users', async (req, res) => {\n  const users = await db.query('SELECT * FROM users');\n  res",
+    "language": "typescript",
+    "filePath": "server.ts",
+    "expectedPattern": "\\.(json|send)\\(users\\)"
+}
